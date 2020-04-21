@@ -13,16 +13,16 @@ struct SparseTable
             for (int i = 0; i < n; i++) Table[0][i] = arr[i];
             for (int k = 1; (1 << k) <= n; k++) {
                   for (int i = 0; i + (1 << (k - 1)) < n; i++) {
-                        int x = Table[k - 1][i];
-                        int y = Table[k - 1][i + (1 << (k - 1))];
+                        T x = Table[k - 1][i];
+                        T y = Table[k - 1][i + (1 << (k - 1))];
                         Table[k][i] = min(x, y);
                   }
             }
       }
       T query(int i, int j) {
             int k = log2(j - i + 1);
-            int x = Table[k][i];
-            int y = Table[k][j + 1 - (1 << k)];
+            T x = Table[k][i];
+            T y = Table[k][j + 1 - (1 << k)];
             return min(x, y);
       }
 };
