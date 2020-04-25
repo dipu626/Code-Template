@@ -28,7 +28,7 @@ bool addLetter(string &s, int pos) {
       int let = s[pos] - 'a';
       while (true) {
             curlen = Tree[cur].len;
-            if (pos-1-curlen >= 0 && s[pos-1-curlen] == s[pos]) {
+            if (pos - 1 - curlen >= 0 && s[pos - 1 - curlen] == s[pos]) {
                   break;
             }
             cur = Tree[cur].sufflink;
@@ -49,7 +49,7 @@ bool addLetter(string &s, int pos) {
       while (true) {
             cur = Tree[cur].sufflink;
             curlen = Tree[cur].len;
-            if (pos-1-curlen >= 0 && s[pos-1-curlen] == s[pos]) {
+            if (pos - 1 - curlen >= 0 && s[pos - 1 - curlen] == s[pos]) {
                   Tree[num].sufflink = Tree[cur].child[let];
                   break;
             }
