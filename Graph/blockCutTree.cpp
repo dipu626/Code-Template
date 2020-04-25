@@ -55,4 +55,7 @@ struct BCTree {
                   }
             }
       }
+      void build(int root = 1) {
+            find_bcc(root);
+      }
 };
