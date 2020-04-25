@@ -16,9 +16,9 @@ struct DST {
                   hgt++;
             }
             dst.clear();
-            dst.resize((1 << hgt) + 5, vector <T> (hgt + 5));
+            dst.resize((1 << hgt) + 1, vector <T> (hgt + 1));
             arr.clear();
-            arr.resize((1 << hgt) + 5);
+            arr.resize((1 << hgt) + 1);
             for (int i = 0; i < n; i++) {
                   arr[i] = ar[i];
             }
