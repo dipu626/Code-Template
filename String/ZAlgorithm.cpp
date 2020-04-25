@@ -1,7 +1,7 @@
 vector <int> get_zarray(string &text) {
     int len = text.size();
     vector <int> z(len);
-    z[0] = 0;
+    z[0] = 0; // Change to len if needed
     int lt = 0;
     int rt = 0;
     for (int k = 1; k < len; k++) {
