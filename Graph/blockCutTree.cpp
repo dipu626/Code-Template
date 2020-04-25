@@ -11,7 +11,7 @@ struct BCTree {
 
       void init(int nodes) {
             graph.clear(); graph.resize(nodes + 1);
-            Tree.clear(); Tree.resize(nodes + 1);
+            Tree.clear(); Tree.resize(3 * nodes + 1);
             vis.clear(); vis.resize(nodes + 1);
             dis.clear(); dis.resize(nodes + 1);
             low.clear(); low.resize(nodes + 1);
