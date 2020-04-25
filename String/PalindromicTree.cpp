@@ -10,7 +10,8 @@ struct PTree {
 };
 
 PTree Tree[maxn];
-int num, suff;
+int num;  // total nodes in the tree
+int suff; // current node 
 string s;
 
 void init() {
