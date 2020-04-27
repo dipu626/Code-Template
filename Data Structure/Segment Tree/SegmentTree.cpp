@@ -140,4 +140,8 @@ struct SegmentTree {
       T get_mini(int l, int r) {
             return query(l, r).mini;
       }
+      
+      #undef lchild
+      #undef rchild
+      #undef mid
 };
