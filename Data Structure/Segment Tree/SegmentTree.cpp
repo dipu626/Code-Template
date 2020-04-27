@@ -141,6 +141,7 @@ struct SegmentTree {
             return query(l, r).mini;
       }
       
+      #undef Node
       #undef lchild
       #undef rchild
       #undef mid
