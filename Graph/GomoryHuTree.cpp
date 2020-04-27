@@ -1,5 +1,5 @@
 /*
-  Problem : 10989 Bomb, Divide and Conquer
+  Problem : 10989 - Bomb, Divide and Conquer
 */
 
 #include "bits/stdc++.h"
