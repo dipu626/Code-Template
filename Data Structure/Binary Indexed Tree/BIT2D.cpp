@@ -1,3 +1,7 @@
+/*
+      Binary Index Tree - Point Update, Range Query
+*/
+
 template <typename T>
 struct BIT {
       int row, column;
