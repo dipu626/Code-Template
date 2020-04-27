@@ -4,15 +4,9 @@ ll grid[maxn][maxn];
 
 template <typename T>
 struct Node {
-      T sum;
-      T maxi;
-      T mini;
-      bool toset;
-      bool toadd;
-      T lazy;
-      Node(T sum = 0, T maxi = numeric_limits <T>::min(), T mini = numeric_limits <T>::max(),
-           bool toset = 0, bool toadd = 0, T lazy = 0)
-           : sum(sum), maxi(maxi), mini(mini), toset(toset), toadd(toadd), lazy(lazy) {}
+      T sum, maxi, mini;
+      Node(T sum = 0, T maxi = numeric_limits <T>::min(), T mini = numeric_limits <T>::max())
+           : sum(sum), maxi(maxi), mini(mini) {}
 };
 
 template <typename T>
