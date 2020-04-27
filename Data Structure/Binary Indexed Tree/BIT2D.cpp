@@ -1,5 +1,5 @@
 /*
-      Binary Index Tree - Point Update, Range Query
+      Binary Indexed Tree - Point Update, Range Query
 */
 
 template <typename T>
