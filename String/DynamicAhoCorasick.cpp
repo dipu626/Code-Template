@@ -1,16 +1,3 @@
-#include "bits/stdc++.h"
-#include "ext/pb_ds/assoc_container.hpp"
-#include "ext/pb_ds/tree_policy.hpp"
-
-using namespace std;
-using namespace __gnu_pbds;
-
-#define pii           pair <int, int>
-#define piii          pair <pii, int>
-#define mk            make_pair
-
-template <typename T> using orderset = tree <T, null_type, less <T>, rb_tree_tag, tree_order_statistics_node_update>;
-
 static const int maxn = 3e5 + 5;
 static const int logn = 20;
 
