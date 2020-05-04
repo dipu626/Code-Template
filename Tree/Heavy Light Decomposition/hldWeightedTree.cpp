@@ -138,20 +138,23 @@ struct HLD {
             return sum;
       }
       void update_up(int u, int lca, ll val) {
-            int L = in[lca];
+            ll sum = 0;
             while (true) {
-                  int l = in[ nxt[u] ] + 1;
-                  int r = in[u];
-                  if (l <= L) {
-                        l = max(l, L);
+                  if (depth[ nxt[u] ] <= depth[lca]) {
+                        int l = in[lca] + 1;
+                        int r = in[u];
                         if (l <= r) {
-//                              update(l, r, val) // Use necessary data structure
+//                            update(l, r); // Use necessary data structure
                         }
                         break;
                   }
-//                  update(l, r, val) // Use necessary data structure
+                  int l = in[ nxt[u] ];
+                  int r = in[u];
+                  assert(l <= r);
+//                  update(l, r, val); // Use necessary data structure
                   u = father[ nxt[u] ][0];
             }
+            return sum;
       }
       void update_path(int u, int v, ll val) {
             int lca = find_lca(u, v);
