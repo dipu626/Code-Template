@@ -23,9 +23,7 @@ struct HLD {
       vector <ll> cost;
       vector <int> depth;
       vector < vector <int> > father;
-
-      SegmentTree <ll> STree;
-
+  
       void init(int nodes) {
             n = nodes
             graph.clear();    graph.resize(n);
@@ -39,8 +37,6 @@ struct HLD {
             cost.clear();     cost.resize(n);
             depth.clear();    depth.resize(n);
             father.clear();   father.resize(n, vector <int> (logn));
-
-            STree.init(n);
       }
       void add_edge(int u, int v, ll w, int id) {
             graph[u].emplace_back(v, w, id);
