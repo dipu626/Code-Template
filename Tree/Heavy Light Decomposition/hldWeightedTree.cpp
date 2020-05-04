@@ -1,6 +1,6 @@
 /*
   Heavy Light Decompostion
-  Weight Tree (Edge Cost)
+  Weighted Tree (Edge Cost)
 */
 
 struct HNode {
