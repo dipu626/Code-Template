@@ -25,7 +25,7 @@ struct HLD {
       vector < vector <int> > father;
   
       void init(int nodes) {
-            n = nodes;
+            n = nodes + 1;
             graph.clear();    graph.resize(n);
             Tree.clear();     Tree.resize(n);
             sub_size.clear(); sub_size.resize(n);
