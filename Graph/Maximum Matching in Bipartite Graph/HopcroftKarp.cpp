@@ -12,6 +12,7 @@ int pairU[maxn];
 int pairV[maxn];
 int dist[maxn];
 //int match[maxn]; // If we can't divide the graph in two parts, use match[]
+                   // http://dipusnotebook.blogspot.com/2019/01/light-oj-1356-prime-independence.html
 
 void init() {
       for (int i = 0; i < maxn; i++) {
