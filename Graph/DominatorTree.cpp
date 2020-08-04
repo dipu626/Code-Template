@@ -98,8 +98,8 @@ struct Dominator {
                   if (dom[i] != sdom[i]) {
                         dom[i] = dom[ dom[i] ];
                   }
-                  Tree[ rev[i] ].eb(rev[ dom[i] ]);
-                  Tree[ rev[ dom[i] ] ].eb(rev[i]);
+                  Tree[ rev[i] ].emplace_back(rev[ dom[i] ]);
+                  Tree[ rev[ dom[i] ] ].emplace_back(rev[i]);
             }
       }
 };
