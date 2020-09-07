@@ -1,10 +1,14 @@
 /*
   Data Structure : Find maximum subarray sum in an array with point update
   Complexity     : Query = O(logn), Update = O(logn)
-  
+
   Note : Change Constructore according to problem statement.
- 
+
+         It returns original value rather than 0 if we don't have a subarray of
+         positive value.
+
   Test : Spoj - GSS1
+         https://cses.fi/problemset/task/1190/
 */
 
 template <typename T>
@@ -43,8 +47,6 @@ struct MaxSubArraySumNode {
       }
 };
 
-long long arr[maxn];
-
 template <typename T>
 struct MaxSubArraySumSegmentTree {
       #define Node              MaxSubArraySumNode <T>
@@ -59,13 +61,13 @@ struct MaxSubArraySumSegmentTree {
             n = N;
             st.clear();       st.resize(4 * N + 5);
       }
-      void build(int node, int a, int b) {
+      void build(int arr[], int node, int a, int b) {
             if (a == b) {
                   st[node].assignLeaf(arr[a]);
                   return;
             }
-            build(lchild, a, mid);
-            build(rchild, mid + 1, b);
+            build(arr, lchild, a, mid);
+            build(arr, rchild, mid + 1, b);
             st[node].marge(st[lchild], st[rchild]);
       }
       void update(int node, int a, int b, int pos, T nval) {
@@ -93,8 +95,8 @@ struct MaxSubArraySumSegmentTree {
             res.marge(p, q);
             return res;
       }
-      void build() {
-            build(1, 1, n);
+      void build(int arr[]) {
+            build(arr, 1, 1, n);
       }
       void update(int pos, T nval) {
             update(1, 1, n, pos, nval);
