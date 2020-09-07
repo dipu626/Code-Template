@@ -28,6 +28,12 @@ struct MaxSubArraySumNode {
             maxSum = num;
             sum = num;
       }
+      void addLeaf(T num) {
+            prefixMaxSum += num;
+            suffixMaxSum += num;
+            maxSum += num;
+            sum += num;
+      }
       void marge(MaxSubArraySumNode &lchild, MaxSubArraySumNode &rchild) {
             if (lchild.outRange == true) {
                   *this = rchild;
@@ -70,16 +76,21 @@ struct MaxSubArraySumSegmentTree {
             build(arr, rchild, mid + 1, b);
             st[node].marge(st[lchild], st[rchild]);
       }
-      void update(int node, int a, int b, int pos, T nval) {
+      void update(int node, int a, int b, int pos, T nval, bool cmd) {
             if (a > pos or b < pos) {
                   return;
             }
             if (a >= pos and b <= pos) {
-                  st[node].assignLeaf(nval);
+                  if (cmd == 0) {
+                        st[node].addLeaf(nval);
+                  }
+                  else {
+                        st[node].assignLeaf(nval);
+                  }
                   return;
             }
-            update(lchild, a, mid, pos, nval);
-            update(rchild, mid + 1, b, pos, nval);
+            update(lchild, a, mid, pos, nval, cmd);
+            update(rchild, mid + 1, b, pos, nval, cmd);
             st[node].marge(st[lchild], st[rchild]);
       }
       Node query(int node, int a, int b, int i, int j) {
@@ -98,8 +109,11 @@ struct MaxSubArraySumSegmentTree {
       void build(int arr[]) {
             build(arr, 1, 1, n);
       }
-      void update(int pos, T nval) {
-            update(1, 1, n, pos, nval);
+      void uadd(int pos, T nval) {
+            update(1, 1, n, pos, nval, 0);
+      }
+      void uset(int pos, T nval) {
+            update(1, 1, n, pos, nval, 1);
       }
       T getMax(int l, int r) {
             return query(1, 1, n, l, r).getMax();
