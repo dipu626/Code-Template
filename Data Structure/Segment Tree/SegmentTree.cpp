@@ -1,21 +1,16 @@
 template <typename T>
-struct Node {
-      T sum;
-      T maxi;
-      T mini;
-      bool toset;
-      bool toadd;
-      T lazy;
-      Node(T sum = 0, T maxi = numeric_limits <T>::min(), T mini = numeric_limits <T>::max(),
-           bool toset = 0, bool toadd = 0, T lazy = 0)
-           : sum(sum), maxi(maxi), mini(mini), toset(toset), toadd(toadd), lazy(lazy) {}
-};
-
-ll arr[maxn];
-
-template <typename T>
 struct SegmentTree {
-      #define Node             Node <T>
+      struct Node {
+            T sum;
+            T maxi;
+            T mini;
+            bool toset;
+            bool toadd;
+            T lazy;
+            Node(T sum = 0, T maxi = numeric_limits <T>::min(), T mini = numeric_limits <T>::max(),
+                 bool toset = 0, bool toadd = 0, T lazy = 0)
+                 : sum(sum), maxi(maxi), mini(mini), toset(toset), toadd(toadd), lazy(lazy) {}
+      };
       #define lchild           node * 2
       #define rchild           node * 2 + 1
       #define mid              (int)(a + b) / 2
@@ -33,7 +28,7 @@ struct SegmentTree {
             st[node].maxi = max(st[lchild].maxi, st[rchild].maxi);
             st[node].mini = min(st[lchild].mini, st[rchild].mini);
       }
-      void build(int node, int a, int b) {
+      void build(T arr[], int node, int a, int b) {
             if (a == b) {
                   int val = arr[a];
                   st[node].sum = val;
@@ -41,8 +36,8 @@ struct SegmentTree {
                   st[node].mini = val;
                   return;
             }
-            build(lchild, a, mid);
-            build(rchild, mid + 1, b);
+            build(arr, lchild, a, mid);
+            build(arr, rchild, mid + 1, b);
             marge(node, a, b);
       }
       void propagate1(int node, int a, int b) {
@@ -119,8 +114,8 @@ struct SegmentTree {
             marge(node, a, b);
             return res;
       }
-      void build() {
-            build(1, 1, n);
+      void build(int arr[]) {
+            build(arr, 1, 1, n);
       }
       void uset(int l, int r, T val) {
             update(1, 1, n, l, r, val, 1);
@@ -140,8 +135,7 @@ struct SegmentTree {
       T get_mini(int l, int r) {
             return query(l, r).mini;
       }
-      
-      #undef Node
+
       #undef lchild
       #undef rchild
       #undef mid
