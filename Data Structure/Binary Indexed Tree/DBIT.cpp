@@ -1,7 +1,7 @@
 /**
  * Description  : range sum queries and point updates for $D$ dimensions
  * Source       : https://codeforces.com/blog/entry/64914
- * Verification : SPOJ matsum
+ * Verification : SPOJ matsum, Timus - 1470. UFOs
  * Usage        : {BIT<int, 10, 10>} gives 2D BIT
  * Update       : fenwick.upd(x, y, val)
  * Query        : fenwick.query(x1, x2, y1, y2) in 2D
